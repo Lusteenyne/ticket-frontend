@@ -1,0 +1,362 @@
+.adminDash-container {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #1e2a38, #2c3e50);
+  min-height: 100vh;
+  padding-bottom: 100px;
+  color: #e1e1e1;
+}
+
+.adminDash-navbar {
+  background-color: #142235;
+  color: #f0f0f0;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.adminDash-navbar h2 {
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #f0f0f0;
+}
+
+.adminDash-statusSummary {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.adminDash-statusSummary .status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.status.approved {
+  background-color: #274c3e;
+  color: #a6d8b7;
+}
+
+.status.pending {
+  background-color: #5a4e2a;
+  color: #d2c77f;
+}
+
+.status.rejected {
+  background-color: #5a2a2a;
+  color: #d87f7f;
+}
+
+.adminDash-tabs {
+  display: flex;
+  justify-content: center;
+  background: #1f2c3a;
+  padding: 12px 0;
+  margin-bottom: 24px;
+  border-radius: 12px;
+}
+
+.adminDash-tabs button {
+  padding: 12px 28px;
+  margin: 0 12px;
+  font-weight: 600;
+  border: none;
+  background: #34495e;
+  color: #d1d1d1;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.adminDash-tabs button.active {
+  background: #1abc9c;
+  color: white;
+  box-shadow: 0 0 12px #1abc9caa;
+}
+
+.adminDash-controls {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  padding: 12px 20px;
+  flex-wrap: wrap;
+}
+
+.adminDash-controls input,
+.adminDash-controls select {
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1.8px solid #1abc9c;
+  font-size: 15px;
+  width: 220px;
+  background-color: #22313f;
+  color: #e1e1e1;
+  transition: border-color 0.3s ease;
+}
+
+.adminDash-controls input:focus,
+.adminDash-controls select:focus {
+  border-color: #16a085;
+  outline: none;
+  background-color: #1f2a38;
+}
+
+.adminDash-eventUpdateForm {
+  max-width: 620px;
+  margin: 30px auto;
+  background-color: #1c2a3aee;
+  padding: 28px 32px;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  color: #ccc;
+}
+
+.adminDash-eventUpdateForm h3 {
+  margin-bottom: 18px;
+  color: #16a085;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.adminDash-eventFields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.adminDash-eventFields > div {
+  flex: 1 1 45%;
+  min-width: 220px;
+}
+
+.adminDash-eventFields label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  font-size: 15px;
+  gap: 8px;
+  color: #b0c7c9;
+}
+
+.adminDash-eventUpdateForm input {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1.5px solid #16a085;
+  font-size: 15px;
+  background-color: #22313f;
+  color: #e1e1e1;
+  transition: border-color 0.3s ease;
+}
+
+.adminDash-eventUpdateForm input:focus {
+  border-color: #1abc9c;
+  outline: none;
+  background-color: #1b2a38;
+}
+
+.adminDash-eventUpdateForm button {
+  background-color: #16a085;
+  color: white;
+  padding: 14px 28px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 16px;
+  transition: background 0.3s ease;
+  width: 100%;
+  box-shadow: 0 4px 10px #16a085bb;
+}
+
+.adminDash-eventUpdateForm button:hover {
+  background-color: #13876b;
+  box-shadow: 0 6px 16px #13876bbb;
+}
+
+.adminDash-card {
+  background: #1e2a38;
+  border-radius: 18px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin: 0 auto 24px auto;
+  width: 80%;
+  color: #d7dde6;
+  border: 1.5px solid #274c64;
+}
+
+.adminDash-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0, 188, 212, 0.7);
+}
+
+.adminDash-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 24px;
+  background: #274c64;
+  border-bottom: 1.5px solid #1c364e;
+}
+
+.adminDash-card-header strong {
+  font-size: 18px;
+  color: #a8d0e6;
+}
+
+.adminDash-toggleBtn {
+  background: transparent;
+  border: none;
+  color: #45a29e;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  font-size: 15px;
+}
+
+.adminDash-toggleBtn:hover {
+  color: #66fcf1;
+}
+
+.adminDash-card-details {
+  padding: 18px 24px;
+  font-size: 15px;
+  background: #203647;
+  line-height: 1.6;
+  color: #cfd8dc;
+}
+
+.adminDash-card-details a {
+  color: #66fcf1;
+  text-decoration: underline;
+}
+
+.adminDash-actionButtons {
+  margin-top: 16px;
+  display: flex;
+  gap: 14px;
+}
+
+.adminDash-actionButtons .approve {
+  background-color: #16a085;
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+.adminDash-actionButtons .approve:hover {
+  background-color: #13876b;
+}
+
+.adminDash-actionButtons .reject {
+  background-color: #c0392b;
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+.adminDash-actionButtons .reject:hover {
+  background-color: #912d26;
+}
+
+.adminDash-loading {
+  text-align: center;
+  font-size: 18px;
+  color: #45a29e;
+  margin-top: 20px;
+}
+
+.adminDash-logoutBtn {
+  background-color: #c0392b;
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 16px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 16px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px #c0392bbb;
+}
+
+.adminDash-logoutBtn:hover {
+  background-color: #7a1c12;
+  box-shadow: 0 6px 20px #7a1c12bb;
+}
+
+.adminDash-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.adminDash-pagination button {
+  padding: 10px 18px;
+  border-radius: 12px;
+  border: 1.5px solid #16a085;
+  background-color: #22313f;
+  color: #e1e1e1;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.adminDash-pagination button:hover {
+  background-color: #1abc9c;
+  color: #fff;
+  box-shadow: 0 0 10px #1abc9caa;
+}
+
+.adminDash-pagination button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.adminDash-loadingUser {
+  margin-top: 0.5rem;
+  font-style: italic;
+  color: #555;
+}
+.adminDash-artworkUpload,
+.adminDash-artworkDisplay {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.adminDash-artworkUpload input[type="file"] {
+  margin-top: 10px;
+}
+
+.adminDash-preview img {
+  max-width: 200px;
+  margin: 10px 0;
+  border-radius: 8px;
+}

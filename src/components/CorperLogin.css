@@ -1,0 +1,221 @@
+.corper-login-container {
+  max-width: 400px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+.corper-login-title {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 0.25rem;
+  color: #1e2a3a;
+}
+
+.corper-login-note {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+.corper-login-form label {
+  display: block;
+  margin-bottom: 1rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.corper-login-input {
+  width: 100%;
+  padding: 8px 10px;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.corper-login-error {
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.corper-login-button {
+  width: 100%;
+  padding: 10px;
+  background: #0077cc;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.corper-login-button:hover {
+  background: #005fa3;
+}
+
+.corper-login-spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #fff;
+  border-top: 3px solid #005fa3;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.corper-login-password-wrapper {
+  position: relative;
+}
+
+.corper-login-password-toggle {
+  position: absolute;
+  right: 10px;
+  top: 58%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #888;
+}
+
+.corper-login-icon {
+  margin-right: 6px;
+  color: #0077cc;
+}
+.corper-login-container {
+  max-width: 400px;
+  margin: 3rem auto;
+  padding: 2.5rem 2rem;
+  background: #f9fafb; 
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(44, 62, 80, 0.1); 
+  font-family: 'Open Sans', sans-serif;
+  color: #2c3e50; 
+  box-sizing: border-box;
+}
+
+.corper-login-title {
+  text-align: center;
+  font-size: 1.85rem;
+  margin-bottom: 0.5rem;
+  color: #1f2d3d; 
+  font-weight: 700;
+  font-family: 'Merriweather', serif;
+}
+
+.corper-login-note {
+  text-align: center;
+  font-size: 0.95rem;
+  margin-bottom: 1.8rem;
+  color: #64707d; 
+}
+
+.corper-login-form label {
+  display: block;
+  margin-bottom: 0.6rem;
+  color: #34495e;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.corper-login-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-top: 0.3rem;
+  border: 1.8px solid #cbd6df; 
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #34495e;
+  background-color: #fff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+
+.corper-login-input::placeholder {
+  color: #9aa5b1; 
+}
+
+.corper-login-input:focus {
+  outline: none;
+  border-color: #5a4fcf; 
+  box-shadow: 0 0 8px rgba(90, 79, 207, 0.4);
+  background-color: #fff;
+}
+
+.corper-login-error {
+  color: #c0392b; 
+  font-size: 0.85rem;
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+.corper-login-button {
+  width: 100%;
+  padding: 0.85rem 0;
+  background: #5a4fcf; 
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-top: 1.3rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.25s ease;
+  user-select: none;
+}
+
+.corper-login-button:hover {
+  background: #463dbc;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(70, 61, 188, 0.3);
+}
+
+.corper-login-spinner {
+  width: 22px;
+  height: 22px;
+  border: 3.5px solid #e6e9f0;
+  border-top: 3.5px solid #5a4fcf;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.corper-login-password-wrapper {
+  position: relative;
+}
+
+.corper-login-password-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #8b98a8; 
+  transition: color 0.3s ease;
+}
+
+.corper-login-password-toggle:hover {
+  color: #5a4fcf; 
+}
+
+.corper-login-icon {
+  margin-right: 6px;
+  color: #5a4fcf;
+}

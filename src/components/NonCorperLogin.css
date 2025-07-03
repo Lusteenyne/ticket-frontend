@@ -1,0 +1,221 @@
+.noncorper-login-container {
+  max-width: 400px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: #fefefe;
+  border-radius: 16px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+}
+
+.noncorper-login-title {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+}
+
+.noncorper-login-note {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.noncorper-login-form label {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.noncorper-login-input {
+  width: 100%;
+  padding: 8px 10px;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.noncorper-login-error {
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.noncorper-login-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #28a745;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.noncorper-login-button:hover {
+  background-color: #218838;
+}
+
+.noncorper-login-spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #fff;
+  border-top: 3px solid #218838;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.noncorper-login-password-wrapper {
+  position: relative;
+}
+
+.noncorper-login-password-toggle {
+  position: absolute;
+  right: 10px;
+  top: 58%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #888;
+}
+
+.noncorper-login-icon {
+  margin-right: 6px;
+  color: #28a745;
+}
+.noncorper-login-container {
+  max-width: 400px;
+  margin: 3rem auto;
+  padding: 2.5rem 2rem;
+  background: #fafaf9; 
+  border-radius: 16px;
+  box-shadow: 0 12px 24px rgba(44, 62, 80, 0.07); 
+  font-family: 'Open Sans', sans-serif;
+  color: #2e3a47; 
+  box-sizing: border-box;
+}
+
+.noncorper-login-title {
+  text-align: center;
+  font-size: 1.85rem;
+  color: #273746; 
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  font-family: 'Merriweather', serif;
+}
+
+.noncorper-login-note {
+  text-align: center;
+  font-size: 0.95rem;
+  color: #64707d; 
+  margin-bottom: 1.8rem;
+}
+
+.noncorper-login-form label {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-weight: 600;
+  color: #3b4756; 
+  font-size: 1rem;
+}
+
+.noncorper-login-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-top: 0.3rem;
+  border: 1.8px solid #ced4da; 
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #3b4756;
+  background-color: #fff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+
+.noncorper-login-input::placeholder {
+  color: #a0a9b8; 
+}
+
+.noncorper-login-input:focus {
+  outline: none;
+  border-color: #2e7d32; 
+  box-shadow: 0 0 8px rgba(46, 125, 50, 0.4);
+  background-color: #fff;
+}
+
+.noncorper-login-error {
+  color: #a52828; 
+  font-size: 0.85rem;
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+.noncorper-login-button {
+  width: 100%;
+  padding: 0.85rem 0;
+  background-color: #2e7d32; 
+  color: white;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  margin-top: 1.3rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease, transform 0.25s ease;
+  user-select: none;
+}
+
+.noncorper-login-button:hover {
+  background-color: #276c2a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(39, 108, 42, 0.3);
+}
+
+.noncorper-login-spinner {
+  width: 22px;
+  height: 22px;
+  border: 3.5px solid #e8f5e9;
+  border-top: 3.5px solid #2e7d32;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.noncorper-login-password-wrapper {
+  position: relative;
+}
+
+.noncorper-login-password-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #8a999e; 
+  transition: color 0.3s ease;
+}
+
+.noncorper-login-password-toggle:hover {
+  color: #2e7d32; 
+}
+
+.noncorper-login-icon {
+  margin-right: 6px;
+  color: #2e7d32;
+}

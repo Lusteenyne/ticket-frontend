@@ -11,11 +11,17 @@ import {
   AlarmClock,
   Ticket,
   LogOut,
+  Undo2,
+  Eye, EyeOff,
+  
 } from "lucide-react";
 import "react-toastify/dist/ReactToastify.css";
 import "./AdminDashboard.css";
+import { useNavigate } from "react-router-dom";
+
 
 const AdminDashboard = () => {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("corpers");
   const [corpers, setCorpers] = useState([]);
   const [nonCorpers, setNonCorpers] = useState([]);
@@ -37,15 +43,16 @@ const AdminDashboard = () => {
   const token = localStorage.getItem("adminToken");
 
   useEffect(() => {
-    if (!token) {
-      toast.error("Session expired or unauthorized. Please log in.");
-      window.location.href = "/admin-login";
-    } else {
-      fetchCorpers();
-      fetchNonCorpers();
-      fetchAdminName();
-    }
-  }, []);
+  const token = localStorage.getItem("adminToken");
+  if (!token) {
+    toast.error("Session expired or unauthorized. Please log in.");
+    setTimeout(() => navigate("/admin-login"), 1500); 
+  } else {
+    fetchCorpers();
+    fetchNonCorpers();
+    fetchAdminName();
+  }
+}, [navigate]);
 
   useEffect(() => {
     setCurrentPage(1);
@@ -158,6 +165,44 @@ const handleEventUpdate = async () => {
   }
 };
 
+const handleResetEventInfo = async () => {
+  const confirmReset = window.confirm("Are you sure you want to reset the event info?");
+  if (!confirmReset) return;
+
+  setLoading(true);
+  try {
+    const response = await fetch("https://ibnw-pop-party-ticket.onrender.com/admin/reset-event-info", {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    const result = await response.json();
+
+    if (!response.ok) {
+      toast.error(result.error || "Failed to reset event info.");
+      return;
+    }
+
+    
+    setEventInfo({
+      date: "To be announced soon",
+      venue: "To be announced soon",
+      time: "To be announced soon",
+      ticketNote: "To be announced soon",
+    });
+
+    toast.success("Event info reset successfully");
+    fetchCorpers();
+    fetchNonCorpers();
+  } catch (error) {
+    toast.error("Error resetting event info.");
+  } finally {
+    setLoading(false);
+  }
+};
 
   const handleArtworkUpload = async () => {
   if (!selectedFile) {
@@ -239,8 +284,8 @@ const handleEventUpdate = async () => {
           <p>{user.email}</p>
         </div>
         <button onClick={onToggle} className={`adminDash-toggleBtn ${expanded ? "open" : ""}`}>
-          {expanded ? "Hide" : "View"}
-        </button>
+  {expanded ? <EyeOff size={18} /> : <Eye size={18} />}
+</button>
       </div>
       {expanded && (
         <div className="adminDash-card-details">
@@ -326,13 +371,19 @@ const handleEventUpdate = async () => {
           <label><Ticket size={16} /> Ticket Note:
             <input type="text" placeholder="Ticket Note" value={eventInfo.ticketNote} onChange={(e) => setEventInfo((prev) => ({ ...prev, ticketNote: e.target.value }))} />
           </label>
-          <button onClick={handleEventUpdate} disabled={loading} className="adminDash-updateEventBtn">
-            Update Event Info
-          </button>
+          <div className="adminDash-eventButtons">
+  <button onClick={handleEventUpdate} disabled={loading} className="adminDash-updateEventBtn">
+    Update
+  </button>
+  <button onClick={handleResetEventInfo} className="adminDash-resetEventBtn">
+    <Undo2 size={16} /> Reset
+  </button>
+</div>
+
         </div>
 
         <div className="adminDash-artworkUpload">
-          <h3>Upload Event Artwork</h3>
+          <h3>Upload Artwork</h3>
           <input
             type="file"
             accept="image/*"

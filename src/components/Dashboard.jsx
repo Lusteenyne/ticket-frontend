@@ -31,6 +31,7 @@ const Dashboard = () => {
   const [user, setUser] = useState(null);
   const [countdown, setCountdown] = useState('');
   const [globalArtwork, setGlobalArtwork] = useState(null);
+  const [ticketLoading, setTicketLoading] = useState(false);
   const ticketRef = useRef(null);
 
   useEffect(() => {
@@ -68,7 +69,7 @@ const Dashboard = () => {
         const res = await axios.get('https://ibnw-pop-party-ticket.onrender.com/event/event-artwork');
         const artworkPath = res.data.artworkUrl;
         if (artworkPath) {
-          setGlobalArtwork(artworkPath); // fixed typo here
+          setGlobalArtwork(artworkPath);
         }
       } catch (err) {
         console.warn('Global artwork not found:', err.response?.data || err.message);
@@ -115,6 +116,9 @@ const Dashboard = () => {
     const rawType = localStorage.getItem('type');
     const type = rawType === 'non-corper' ? 'noncorper' : rawType;
 
+    setTicketLoading(true);
+    document.getElementById('ticket-status').innerText = '';
+
     try {
       await axios.post(
         'https://ibnw-pop-party-ticket.onrender.com/event/send-ticket',
@@ -126,6 +130,8 @@ const Dashboard = () => {
     } catch (err) {
       console.error('Ticket email error:', err);
       document.getElementById('ticket-status').innerText = 'Failed to send ticket. Try again.';
+    } finally {
+      setTicketLoading(false);
     }
   };
 
@@ -151,7 +157,6 @@ const Dashboard = () => {
       })
     : 'To Be Announced';
 
-  // Check if user.artwork is a full URL, else prefix localhost
   const artworkSrc = user.artwork
     ? (user.artwork.startsWith('http') ? user.artwork : `https://ibnw-pop-party-ticket.onrender.com${user.artwork}`)
     : globalArtwork || fallbackArtwork;
@@ -208,8 +213,19 @@ const Dashboard = () => {
             <p className="party-ticket-congrats"><BadgeCheck className="party-icon" /> Congratulations</p>
           </div>
         </div>
-        <button className="party-ticket-download-btn" onClick={handleSendTicketToEmail}>
-          Get Ticket
+
+        <button
+          className="party-ticket-download-btn"
+          onClick={handleSendTicketToEmail}
+          disabled={ticketLoading}
+        >
+          {ticketLoading ? (
+            <>
+              <div className="party-ticket-spinner" /> Sending...
+            </>
+          ) : (
+            'Get Ticket'
+          )}
         </button>
         <p id="ticket-status" style={{ marginTop: '10px', color: '#6e00ff', fontWeight: 'bold' }}></p>
       </section>

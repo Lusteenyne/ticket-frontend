@@ -261,3 +261,18 @@
   50% { text-shadow: 0 0 20px #ff4081; transform: scale(1.05); }
   100% { text-shadow: 0 0 5px #ff4081; transform: scale(1); }
 }
+.party-ticket-spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #fff;
+  border-top: 2px solid #6e00ff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

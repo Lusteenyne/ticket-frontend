@@ -17,7 +17,7 @@ function NonCorperLogin() {
 
   const validationSchema = Yup.object({
     email: Yup.string().email("Invalid email").required("Required"),
-    password: Yup.string().min(6).required("Required"),
+    password: Yup.string().min(6, "Password too short").required("Required"),
   });
 
   const handleSubmit = async (values) => {
@@ -38,23 +38,33 @@ function NonCorperLogin() {
         const userStatus = data?.user?.status;
 
         if (!userStatus || userStatus !== "approved") {
-          console.log("[NON-CORPER LOGIN] Access denied for unapproved user:", values.email, "Status:", userStatus);
+          console.log("[NON-CORPER LOGIN] Unapproved user:", values.email, "Status:", userStatus);
           toast.info("Login successful, but your account hasn't been approved yet.");
           localStorage.setItem("token", data.token); 
           localStorage.setItem("type", "non-corper");
+          localStorage.setItem("user", JSON.stringify(data.user));
           navigate("/pending-approval");
-          setLoading(false);
           return;
         }
 
         // Approved user
         localStorage.setItem("token", data.token);
         localStorage.setItem("type", "non-corper");
+        localStorage.setItem("user", JSON.stringify(data.user));
         toast.success("Login successful!");
         navigate("/dashboard");
       } else {
-        console.log("[NON-CORPER LOGIN] Login failed:", data.message);
-        toast.error(data.message || "Login failed.");
+        console.error("[NON-CORPER LOGIN FAILED]:", data.error || data.message || "Unknown error");
+
+        // Show specific error messages based on backend
+        const errorMsg = data.error || data.message || "Login failed.";
+        if (errorMsg.toLowerCase().includes("email")) {
+          toast.error("Email not found. Please check and try again.");
+        } else if (errorMsg.toLowerCase().includes("password")) {
+          toast.error("Incorrect password. Please try again.");
+        } else {
+          toast.error(errorMsg);
+        }
       }
     } catch (error) {
       console.error("[NON-CORPER LOGIN] Server error:", error);

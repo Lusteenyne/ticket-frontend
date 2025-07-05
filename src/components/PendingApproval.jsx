@@ -1,17 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaHourglassHalf } from "react-icons/fa";
 import "./PendingApproval.css";
 
 function PendingApproval() {
   const navigate = useNavigate();
+  const [user, setUser] = useState(null);
 
-  let user = null;
-  try {
-    user = JSON.parse(localStorage.getItem("pendingUser"));
-  } catch (err) {
-    console.error("Error parsing pendingUser from localStorage", err);
-  }
+  useEffect(() => {
+    try {
+      const storedUser = localStorage.getItem("pendingUser");
+      if (storedUser) {
+        const parsedUser = JSON.parse(storedUser);
+        // If parsedUser is a string (like "non-corper"), wrap it in an object
+        if (typeof parsedUser === "string") {
+          setUser({ firstName: parsedUser });
+        } else {
+          setUser(parsedUser);
+        }
+      }
+    } catch (err) {
+      console.error("Error parsing pendingUser from localStorage", err);
+    }
+  }, []);
 
   const firstName = user?.firstName || "there";
 

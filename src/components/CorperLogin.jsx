@@ -41,9 +41,7 @@ function CorperLogin() {
 
       if (res.ok) {
         if (data.user.status !== "approved") {
-          toast.info(
-            "Login successful, but your account is not yet approved."
-          );
+          toast.info("Login successful, but your account is not yet approved.");
           localStorage.setItem("pendingUser", JSON.stringify(data.user));
           navigate("/pending-approval");
           return;
@@ -56,7 +54,15 @@ function CorperLogin() {
         navigate("/dashboard");
       } else {
         console.error("[LOGIN FAILED]:", data.error || "Unknown error");
-        toast.error(data.error || "Login failed.");
+
+        // Show specific error messages
+        if (data.error?.toLowerCase().includes("email")) {
+          toast.error("Email not found. Please double-check your email.");
+        } else if (data.error?.toLowerCase().includes("password")) {
+          toast.error("Incorrect password. Please try again.");
+        } else {
+          toast.error(data.error || "Login failed.");
+        }
       }
     } catch (err) {
       console.error("[SERVER ERROR]:", err);
@@ -115,7 +121,11 @@ function CorperLogin() {
                 className="corper-login-error"
               />
             </label>
-            <button type="submit" className="corper-login-button" disabled={loading}>
+            <button
+              type="submit"
+              className="corper-login-button"
+              disabled={loading}
+            >
               {loading ? <div className="corper-login-spinner" /> : "Login"}
             </button>
           </Form>

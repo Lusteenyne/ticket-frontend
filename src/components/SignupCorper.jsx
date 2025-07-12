@@ -62,7 +62,7 @@ function SignupCorper() {
 
       if (res.ok) {
         toast.success("Corper registration successful!");
-        setTimeout(() => navigate("/corper-login"), 2000);
+        navigate("/corper-login");
       } else {
         toast.error(data.message || "Submission failed");
       }

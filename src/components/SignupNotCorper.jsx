@@ -53,7 +53,7 @@ function SignupNotCorper() {
 
       if (res.ok) {
         toast.success("Non-Corper registration successful!");
-        setTimeout(() => navigate("/non-corper-login"), 2000);
+        navigate("/non-corper-login");
       } else {
         toast.error(data.message || "Submission failed.");
       }
